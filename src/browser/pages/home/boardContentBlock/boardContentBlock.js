@@ -11,7 +11,6 @@ const BoardContentBlock = () => {
     <BoardContentBlockArea>
       <BoardContentBlockWrapper>
         <BoardTitle>게시판 이름</BoardTitle>
-
         <BoardSearchFilter>
           <BoardSelectFilter>
             <BoardSelectFilterList>
