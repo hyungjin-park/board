@@ -1,8 +1,39 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import useCustomNavi from "../../../hooks/useCustomNavi";
 import BoardContentBlock from "./boardContentBlock/boardContentBlock";
 import SideBar from "./sidebar";
 
 const BoardBody = () => {
+  const [postsList, setPostsList] = useState([]);
+
+  useEffect(() => {
+    const fetchList = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/posts");
+        setPostsList(response.data);
+        // console.log(response.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchList();
+  }, []);
+
+  // useEffect(() => {
+  //   const fetchList = async () => {
+  //     try {
+  //       const response = await axios.post("http://localhost:8080/posts");
+  //       setPostsList(response.data);
+  //       // console.log(response.data);
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+  //   };
+  //   fetchList();
+  // }, []);
+
   return (
     <BoardBodyArea>
       <BoardBodyWrapper>
@@ -10,7 +41,10 @@ const BoardBody = () => {
           <SideBar />
         </SideBarWrapper>
         <BoardContentBlockWrapper>
-          <BoardContentBlock />
+          <BoardContentBlock
+            setPostsList={setPostsList}
+            postsList={postsList}
+          />
         </BoardContentBlockWrapper>
       </BoardBodyWrapper>
     </BoardBodyArea>
