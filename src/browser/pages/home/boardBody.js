@@ -1,17 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { postsState } from "../../../atoms/postsState";
 import useCustomNavi from "../../../hooks/useCustomNavi";
 import BoardContentBlock from "./boardContentBlock/boardContentBlock";
 import SideBar from "./sidebar";
 
 const BoardBody = () => {
-  const [postsList, setPostsList] = useState([]);
+  const [postsList, setPostsList] = useRecoilState(postsState);
 
   useEffect(() => {
     const fetchList = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/posts");
+        const response = await axios.get(`http://localhost:8080/posts`);
         setPostsList(response.data);
         // console.log(response.data);
       } catch (e) {
@@ -37,14 +40,8 @@ const BoardBody = () => {
   return (
     <BoardBodyArea>
       <BoardBodyWrapper>
-        <SideBarWrapper>
-          <SideBar />
-        </SideBarWrapper>
         <BoardContentBlockWrapper>
-          <BoardContentBlock
-            setPostsList={setPostsList}
-            postsList={postsList}
-          />
+          <BoardContentBlock />
         </BoardContentBlockWrapper>
       </BoardBodyWrapper>
     </BoardBodyArea>
@@ -52,31 +49,29 @@ const BoardBody = () => {
 };
 
 const BoardBodyArea = styled.div`
-  width: 100%;
-  height: 180vh;
-  background-color: #d2ffd2;
+  width: 1000px;
+  height: 110vh;
+  background-color: #ffe5cb;
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
+  /* padding-bottom: 1.6rem; */
+  margin: 40px auto;
 `;
 
 const BoardBodyWrapper = styled.div`
-  width: 1230px;
+  /* width: 1030px; */
   display: flex;
-  background-color: #d2ffd2;
-  /* background-color: white; */
-`;
-
-const SideBarWrapper = styled.div`
-  width: 200px;
-  /* background-color: red; */
-  background-color: #d2ffd2;
-  margin-right: 40px;
+  /* background-color: #d2ffd2; */
+  background-color: white;
+  /* z-index: 10; */
 `;
 
 const BoardContentBlockWrapper = styled.div`
-  width: 990px;
+  width: 880px;
   /* background-color: red; */
-  background-color: white;
+  /* background-color: white; */
+  /* background-color: skyblue; */
+  /* border: 2px solid skyblue; */
 `;
 export default BoardBody;

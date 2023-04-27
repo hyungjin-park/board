@@ -1,13 +1,18 @@
 import styled from "styled-components";
+import useCustomNavi from "../../hooks/useCustomNavi";
+import sun from "../../assets/sun.png";
 
 const Header = () => {
+  const { pathName, navigate } = useCustomNavi();
   return (
     <HeaderArea>
       <HeaderWrapper>
-        <HeaderLogo>NoLogo</HeaderLogo>
+        <HeaderLogo pathName={pathName} path="/" onClick={() => navigate("/")}>
+          <SunLogo src={sun} alt="태양" />
+        </HeaderLogo>
         <HeaderListArea>
-          <HeaderListLoginPage>로그인</HeaderListLoginPage>
-          <HeaderListSignUpPage>회원가입</HeaderListSignUpPage>
+          {/* <HeaderListLoginPage>로그인</HeaderListLoginPage>
+          <HeaderListSignUpPage>회원가입</HeaderListSignUpPage> */}
         </HeaderListArea>
       </HeaderWrapper>
     </HeaderArea>
@@ -18,10 +23,11 @@ const HeaderArea = styled.div`
   width: 100%;
   /* background-color: red; */
   background-color: white;
-  padding: 1.5em 0 1.5em 0;
+  padding: 0.6em 0 0.6em 0;
   display: flex;
   margin: 0px auto;
   justify-content: center;
+  /* border-bottom: 2px solid skyblue; */
 `;
 
 const HeaderWrapper = styled.div`
@@ -35,6 +41,10 @@ const HeaderWrapper = styled.div`
 
 const HeaderLogo = styled.a`
   font-size: 17px;
+`;
+
+const SunLogo = styled.img`
+  width: 44px;
 `;
 
 const HeaderListArea = styled.ul`
