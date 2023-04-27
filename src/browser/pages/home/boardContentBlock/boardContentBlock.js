@@ -84,7 +84,7 @@ const BoardCreateBtn = styled.button`
   /* border-color: #d2ffd2; */
 
   border: none;
-  background-color: #d2d2d2;
+  background-color: #ffe5cb;
 `;
 
 const BoardListCategory = styled.div`
@@ -92,7 +92,7 @@ const BoardListCategory = styled.div`
   justify-content: space-between;
   padding: 10px;
   /* border: 1px solid #dddeee; */
-  background-color: #d2d2d2;
+  background-color: #ffe5cb;
   align-items: center;
 `;
 

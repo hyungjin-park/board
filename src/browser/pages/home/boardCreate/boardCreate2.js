@@ -99,8 +99,9 @@ export default function BoardCreate2() {
           //   value={content}
           onChange={onChange}
         ></Editor>
-
-        <button type="submit">등록</button>
+        <CreateBtnWrapper>
+          <CreateBtn type="submit">작성</CreateBtn>
+        </CreateBtnWrapper>
       </form>
     </CreateArea>
   );
@@ -121,7 +122,7 @@ const TitleWrapper = styled.div`
   align-items: center;
   padding: 10px 12px;
   border-radius: 4px;
-  border: 1px solid #dee2e6;
+  border: 0 solid #dee2e6;
   margin-bottom: 0.6rem;
 `;
 
@@ -135,4 +136,16 @@ const TitleInput = styled.input`
   :focus {
     outline: none;
   }
+`;
+
+const CreateBtnWrapper = styled.div`
+  width: 100%;
+  margin-top: 0.8em;
+  display: flex;
+  justify-content: center;
+`;
+const CreateBtn = styled.button`
+  padding: 0.5rem 1.3rem;
+  border: none;
+  background-color: #ffe5cb;
 `;

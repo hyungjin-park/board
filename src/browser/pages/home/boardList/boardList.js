@@ -38,11 +38,11 @@ const BoardContainer = styled.li`
   padding: 1rem;
   justify-content: space-between;
   padding: 10px;
-  border-bottom: 1px solid #d2d2d2;
+  border-bottom: 1px solid #ffe5cb;
   background-color: white;
   align-items: center;
   &:hover {
-    background-color: #e2e2e2;
+    background-color: #ffe5cb;
   }
 `;
 const ListLike = styled.div`
@@ -54,7 +54,7 @@ const ListTitle = styled.div`
   width: 400px;
   text-align: center;
   &:hover {
-    color: orange;
+    color: white;
   }
 `;
 

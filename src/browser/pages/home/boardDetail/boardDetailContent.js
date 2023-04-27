@@ -45,14 +45,15 @@ const BoardDetailContent = () => {
 
   return (
     <BoardContentBlockArea>
-      <button onClick={fetchList}>삭제</button>
-      <button onClick={fetchList2}>수정</button>
       <BoardContentBlockWrapper>
         {postsList?.map((item) => {
           if (id === `${item.id}`) {
             return (
               <BoardDetailWrapper>
-                <BoardTitle>{item.title}</BoardTitle>
+                <DetailTitleWrapper>
+                  <BoardTitle>{item.title}</BoardTitle>
+                  <DeleteBtn onClick={fetchList}>삭제</DeleteBtn>
+                </DetailTitleWrapper>
                 <BoardContentWrapper>
                   <BoardContent
                     dangerouslySetInnerHTML={{ __html: item.content }}
@@ -75,18 +76,30 @@ const BoardContentBlockWrapper = styled.div``;
 
 const BoardTitle = styled.h5`
   font-size: 20px;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #dddeee;
   margin-left: 5px;
 `;
 
 const BoardContentWrapper = styled.div`
   width: 100%;
-  background-color: red;
 `;
 
 const BoardDetailWrapper = styled.div``;
+
+const DetailTitleWrapper = styled.div`
+  height: 47px;
+  border-bottom: 1.3px solid #ffe5cb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+`;
+
+const DeleteBtn = styled.button`
+  padding: 0.5rem 1.3rem;
+  border: none;
+  background-color: #ffe5cb;
+`;
 
 const BoardContent = styled.p``;
 export default BoardDetailContent;

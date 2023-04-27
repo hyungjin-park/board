@@ -63,7 +63,7 @@ const BoardBodyWrapper = styled.div`
   /* width: 1030px; */
   display: flex;
   /* background-color: #d2ffd2; */
-  background-color: white;
+  background-color: #fffffe;
   /* z-index: 10; */
 `;
 
@@ -72,6 +72,5 @@ const BoardContentBlockWrapper = styled.div`
   /* background-color: red; */
   /* background-color: white; */
   /* background-color: skyblue; */
-  /* border: 2px solid skyblue; */
 `;
 export default BoardBody;
