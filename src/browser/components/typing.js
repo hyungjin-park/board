@@ -4,13 +4,13 @@ import styled from "styled-components";
 import rainbow from "../../assets/img/rainbow.png";
 
 const Typing = () => {
-  const [blogTitle, setBlogTitle] = useState("");
+  const [boardTitle, setBoardTitle] = useState("");
   const [count, setCount] = useState(0);
   const completionWord = "나만의 일기를 작성해보세요!!";
 
   useEffect(() => {
     const typingInterval = setInterval(() => {
-      setBlogTitle((prevTitleValue) => {
+      setBoardTitle((prevTitleValue) => {
         let result = prevTitleValue
           ? prevTitleValue + completionWord[count]
           : completionWord[0];
@@ -18,7 +18,7 @@ const Typing = () => {
 
         if (count >= completionWord.length) {
           setCount(0);
-          setBlogTitle("");
+          setBoardTitle("");
         }
 
         return result;
@@ -35,7 +35,7 @@ const Typing = () => {
       <TypingWrapper>
         <TypingWorld>
           <RainbowImg src={rainbow} />
-          {blogTitle}
+          {boardTitle}
           <RainbowImg src={rainbow} />
         </TypingWorld>
       </TypingWrapper>
